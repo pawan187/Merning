@@ -8,7 +8,7 @@ const {
   validateLoginInput
 } = require("../../util/validators");
 
-const { SECRET_Key } = require("../../config");
+const { SECRET_KEY } = require("../../config");
 
 const User = require("../../models/User");
 
@@ -19,7 +19,7 @@ function generateToken(user) {
       email: user.email,
       username: user.username
     },
-    SECRET_Key,
+    "SECRET_KEY",
     { expiresIn: "1h" }
   );
 }
@@ -64,6 +64,7 @@ module.exports = {
         password,
         confirmPassword
       );
+      console.log("register api");
       if (!valid) {
         throw new UserInputError("Errors", { errors });
       }
