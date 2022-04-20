@@ -27,5 +27,29 @@ module.exports = gql`
     id: ID!
     email: String!
     token: Sting!
+    username: String!
+    createdAt: String!
+  }
+  type RegisterInput {
+    username: String!
+    password: String!
+    confirmPassword: String!
+    email: String!
+  }
+  type Query {
+    getPosts: [Post]
+    getPost(postId: ID!): Post
+  }
+  type Mutation {
+    register(registerInput: RegisterInput): User!
+    login(username: String!, password: String!): User!
+    createPost(body: String!): Post!
+    deletePost(postId: ID!): String!
+    createComment(postId: String!, body: String!): Post!
+    deleteComment(postId: ID!, commentId: ID!): Post!
+    likePost(postId: ID!): Post!
+  }
+  type Subscription {
+    newPost: Post!
   }
 `;

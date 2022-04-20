@@ -8,7 +8,8 @@
 //   })
 //   .listen(8080); //the server object listens on port 8080
 
-const { ApolloServer, PubSub } = require("apollor-server");
+const { ApolloServer, PubSub } = require("apollo-server");
 const mongoose = require("mongoose");
 const typeDefs = require("./graphql/typeDefs");
+
 const resolvers = require("./graphql/resolvers");
