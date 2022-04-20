@@ -8,7 +8,7 @@ const {
   validateLoginInput
 } = require("../../util/validators");
 
-const { SECRET_KEY } = require("../../config");
+// const { SECRET_KEY } = require("../../config");
 
 const User = require("../../models/User");
 
@@ -19,7 +19,7 @@ function generateToken(user) {
       email: user.email,
       username: user.username
     },
-    SECRET_KEY,
+    process.env.SECRET_KEY,
     { expiresIn: "1h" }
   );
 }
